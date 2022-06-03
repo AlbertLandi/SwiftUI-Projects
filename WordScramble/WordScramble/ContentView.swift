@@ -25,11 +25,13 @@ struct ContentView: View {
                 }
                 
                 Section {
-                    ForEach(usedWords, id: \.self) { Word in
+                    ForEach(usedWords, id: \.self) { word in
                         HStack {
-                            Image(systemName: "\(Word.count).circle")
-                            Text(Word)
+                            Image(systemName: "\(word.count).circle")
+                            Text(word)
                         }
+                        .accessibilityElement()
+                        .accessibilityLabel("\(word), \(word.count) letters")
                     }
                 }
             }
